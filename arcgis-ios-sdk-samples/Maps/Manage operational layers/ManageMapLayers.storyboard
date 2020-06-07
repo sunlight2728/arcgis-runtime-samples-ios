@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FzM-2V-EQz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manage Map Layers View Controller-->
+        <scene sceneID="Up0-T1-XQd">
+            <objects>
+                <viewController id="FzM-2V-EQz" customClass="ManageMapLayersViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LjG-Av-qXX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7t2-g1-K1m" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqt-1N-pJU">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="Wn9-dB-Rh1"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0Ns-WL-avp"/>
+                                    <barButtonItem title="Manage Layers" id="MnU-iW-y5n">
+                                        <connections>
+                                            <segue destination="cCd-0w-JMY" kind="popoverPresentation" identifier="" popoverAnchorBarButtonItem="MnU-iW-y5n" id="Bfj-n8-jDL">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                <popoverPassthroughViews>
+                                                    <view reference="7t2-g1-K1m"/>
+                                                </popoverPassthroughViews>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WoS-IH-V2u"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647720579999997" green="0.9764588475" blue="0.97647124529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="4Sf-hS-8jA" firstAttribute="bottom" secondItem="7t2-g1-K1m" secondAttribute="bottom" id="0zZ-C7-DhL"/>
+                            <constraint firstItem="7t2-g1-K1m" firstAttribute="leading" secondItem="LjG-Av-qXX" secondAttribute="leading" id="1MU-VI-e8K"/>
+                            <constraint firstItem="7t2-g1-K1m" firstAttribute="bottom" secondItem="wqt-1N-pJU" secondAttribute="top" id="CmM-Pg-5on"/>
+                            <constraint firstItem="wqt-1N-pJU" firstAttribute="trailing" secondItem="4Sf-hS-8jA" secondAttribute="trailing" id="JCB-qU-BTb"/>
+                            <constraint firstItem="7t2-g1-K1m" firstAttribute="trailing" secondItem="LjG-Av-qXX" secondAttribute="trailing" id="VR1-1v-ga7"/>
+                            <constraint firstItem="wqt-1N-pJU" firstAttribute="bottom" secondItem="4Sf-hS-8jA" secondAttribute="bottom" id="ch1-dn-ias"/>
+                            <constraint firstItem="wqt-1N-pJU" firstAttribute="leading" secondItem="4Sf-hS-8jA" secondAttribute="leading" id="ezQ-N5-OCE"/>
+                            <constraint firstItem="7t2-g1-K1m" firstAttribute="top" secondItem="4Sf-hS-8jA" secondAttribute="top" id="ipI-8Y-GWx"/>
+                            <constraint firstItem="7t2-g1-K1m" firstAttribute="top" secondItem="LjG-Av-qXX" secondAttribute="top" id="nTP-Da-lbR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Sf-hS-8jA"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0zZ-C7-DhL"/>
+                                <exclude reference="nTP-Da-lbR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="7t2-g1-K1m" id="XEO-Vi-OZ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AX4-DP-x80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-608" y="-187"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="80M-c2-cJA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cCd-0w-JMY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wbt-8M-Qud">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q8X-4R-rQE" kind="relationship" relationship="rootViewController" id="0Vl-8T-lmC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNW-Wu-whi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165" y="-187"/>
+        </scene>
+        <!--Manage Layers-->
+        <scene sceneID="lHi-54-2ft">
+            <objects>
+                <tableViewController id="Q8X-4R-rQE" customClass="MMLLayersViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Ss-44-Xon">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="LayerCell" textLabel="ViE-pt-pLy" style="IBUITableViewCellStyleDefault" id="cPY-5u-lNR">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cPY-5u-lNR" id="c5L-bv-zRt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ViE-pt-pLy">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Q8X-4R-rQE" id="iHt-Hh-Oa6"/>
+                            <outlet property="delegate" destination="Q8X-4R-rQE" id="CGk-cp-r31"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Manage Layers" id="mOD-w4-TEK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vC0-E2-6EB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="-188"/>
+        </scene>
+    </scenes>
+</document>

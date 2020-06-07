@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nk8-Py-Q25">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Offline Editing View Controller-->
+        <scene sceneID="c8v-57-bOX">
+            <objects>
+                <viewController id="nk8-Py-Q25" customClass="OfflineEditingViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OYo-b7-tB3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bv8-Lb-0y3" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wO-f3-vAW">
+                                <rect key="frame" x="37.5" y="80.5" width="300" height="482"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAa-aw-Yqx" userLabel="Geodatabse Toolbar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="Qso-n6-f2U"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Switch to service" id="kGo-Yw-imd">
+                                        <connections>
+                                            <action selector="switchToServiceMode:" destination="nk8-Py-Q25" id="4Ak-2Z-RTI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ocU-t4-M8c"/>
+                                    <barButtonItem title="Sync" id="plZ-uz-8Ou">
+                                        <connections>
+                                            <action selector="syncAction" destination="nk8-Py-Q25" id="GNd-UT-ELK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P32-Ts-mfU" userLabel="Service Toolbar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="ByM-P2-qPk"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BAx-kn-2jn"/>
+                                    <barButtonItem enabled="NO" title="Generate Geodatabase" id="OLR-aV-vK7">
+                                        <connections>
+                                            <action selector="generateGeodatabaseAction:" destination="nk8-Py-Q25" id="Yux-NN-t0R"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tAZ-tx-lbm"/>
+                                </items>
+                            </toolbar>
+                            <toolbar hidden="YES" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TyB-0a-A6h">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rNL-O3-Fbd"/>
+                                    <barButtonItem systemItem="done" id="CbR-LS-rJq">
+                                        <connections>
+                                            <action selector="sketchDoneAction" destination="nk8-Py-Q25" id="hPd-s2-Tlo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-l1-3cF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="20.5"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.70272691080000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nt3-l1-3cF" firstAttribute="leading" secondItem="OYo-b7-tB3" secondAttribute="leading" id="7KV-4I-cPK"/>
+                            <constraint firstItem="Nt3-l1-3cF" firstAttribute="top" secondItem="5NL-pv-SzQ" secondAttribute="top" id="7lV-3B-8vu"/>
+                            <constraint firstItem="7wO-f3-vAW" firstAttribute="centerY" secondItem="bv8-Lb-0y3" secondAttribute="centerY" id="BCy-Ob-I6q"/>
+                            <constraint firstItem="7wO-f3-vAW" firstAttribute="width" secondItem="bv8-Lb-0y3" secondAttribute="width" multiplier="0.8" id="Ogf-A5-3g8"/>
+                            <constraint firstItem="P32-Ts-mfU" firstAttribute="trailing" secondItem="5NL-pv-SzQ" secondAttribute="trailing" id="RiX-Fq-uIq"/>
+                            <constraint firstItem="bv8-Lb-0y3" firstAttribute="trailing" secondItem="OYo-b7-tB3" secondAttribute="trailing" id="Zow-Im-A8A"/>
+                            <constraint firstItem="TyB-0a-A6h" firstAttribute="centerX" secondItem="P32-Ts-mfU" secondAttribute="centerX" id="aeB-Zo-SXD"/>
+                            <constraint firstItem="P32-Ts-mfU" firstAttribute="leading" secondItem="5NL-pv-SzQ" secondAttribute="leading" id="dTX-lM-LfG"/>
+                            <constraint firstItem="5NL-pv-SzQ" firstAttribute="bottom" secondItem="FAa-aw-Yqx" secondAttribute="bottom" id="fDI-jG-UJ9"/>
+                            <constraint firstItem="FAa-aw-Yqx" firstAttribute="leading" secondItem="OYo-b7-tB3" secondAttribute="leading" id="h7x-fU-dKY"/>
+                            <constraint firstItem="TyB-0a-A6h" firstAttribute="width" secondItem="P32-Ts-mfU" secondAttribute="width" id="hvr-GW-0pu"/>
+                            <constraint firstItem="P32-Ts-mfU" firstAttribute="top" secondItem="bv8-Lb-0y3" secondAttribute="bottom" id="jJY-NZ-hPV"/>
+                            <constraint firstItem="bv8-Lb-0y3" firstAttribute="top" secondItem="5NL-pv-SzQ" secondAttribute="top" id="lTx-RV-Og9"/>
+                            <constraint firstItem="TyB-0a-A6h" firstAttribute="centerY" secondItem="P32-Ts-mfU" secondAttribute="centerY" id="mK5-s2-qRF"/>
+                            <constraint firstItem="5NL-pv-SzQ" firstAttribute="bottom" secondItem="P32-Ts-mfU" secondAttribute="bottom" id="n2Y-MK-9l4"/>
+                            <constraint firstItem="Nt3-l1-3cF" firstAttribute="trailing" secondItem="OYo-b7-tB3" secondAttribute="trailing" id="o8p-lU-QFc"/>
+                            <constraint firstItem="FAa-aw-Yqx" firstAttribute="trailing" secondItem="OYo-b7-tB3" secondAttribute="trailing" id="p1o-DL-MsU"/>
+                            <constraint firstItem="TyB-0a-A6h" firstAttribute="height" secondItem="P32-Ts-mfU" secondAttribute="height" id="suf-dY-7L1"/>
+                            <constraint firstItem="5NL-pv-SzQ" firstAttribute="bottom" secondItem="bv8-Lb-0y3" secondAttribute="bottom" id="uNg-OR-w7T"/>
+                            <constraint firstItem="bv8-Lb-0y3" firstAttribute="leading" secondItem="OYo-b7-tB3" secondAttribute="leading" id="v7g-7r-s8x"/>
+                            <constraint firstItem="7wO-f3-vAW" firstAttribute="height" secondItem="bv8-Lb-0y3" secondAttribute="height" multiplier="0.8" id="xhg-RU-zTz"/>
+                            <constraint firstItem="7wO-f3-vAW" firstAttribute="centerX" secondItem="bv8-Lb-0y3" secondAttribute="centerX" id="xrf-nM-RzP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5NL-pv-SzQ"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uNg-OR-w7T"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="jNg-Pu-2EB"/>
+                    <connections>
+                        <outlet property="barButtonItem" destination="OLR-aV-vK7" id="RVl-pY-NW4"/>
+                        <outlet property="doneBBI" destination="CbR-LS-rJq" id="mqu-Xr-ddC"/>
+                        <outlet property="extentView" destination="7wO-f3-vAW" id="c5l-B2-dU5"/>
+                        <outlet property="geodatabaseModeToolbar" destination="FAa-aw-Yqx" id="wyq-o7-uEp"/>
+                        <outlet property="instructionsLabel" destination="Nt3-l1-3cF" id="OTA-oU-MhP"/>
+                        <outlet property="mapView" destination="bv8-Lb-0y3" id="KuC-Zv-CmA"/>
+                        <outlet property="serviceModeToolbar" destination="P32-Ts-mfU" id="uHG-BB-IMx"/>
+                        <outlet property="sketchToolbar" destination="TyB-0a-A6h" id="uYG-rJ-0dH"/>
+                        <outlet property="syncBBI" destination="plZ-uz-8Ou" id="ily-B6-inf"/>
+                        <segue destination="SI6-k6-Ely" kind="presentation" identifier="FeatureLayersSegue" modalPresentationStyle="formSheet" id="f4B-gz-XLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DE1-Iw-WeD" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1027" y="173"/>
+        </scene>
+        <!--Select Feature Layers-->
+        <scene sceneID="6w1-j9-QY0">
+            <objects>
+                <tableViewController id="vY3-dL-Jz6" customClass="FeatureLayersViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="zU0-Jw-tYD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeatureLayerCell" id="r9x-RB-wCT">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9x-RB-wCT" id="Opd-0j-ueL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vY3-dL-Jz6" id="5rv-ng-5Zn"/>
+                            <outlet property="delegate" destination="vY3-dL-Jz6" id="9UR-FL-lgh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Feature Layers" id="JwB-VX-kvz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5o2-3o-UIm">
+                            <connections>
+                                <action selector="cancelAction:" destination="vY3-dL-Jz6" id="tEM-HB-51u"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="D4t-k8-hsM">
+                            <connections>
+                                <action selector="doneAction:" destination="vY3-dL-Jz6" id="klf-yl-Vri"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="D4t-k8-hsM" id="QoV-BD-bTN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ZG-JR-Uoc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="171"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RD5-yC-SFN">
+            <objects>
+                <navigationController id="SI6-k6-Ely" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jaN-pI-weE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vY3-dL-Jz6" kind="relationship" relationship="rootViewController" id="dwG-oS-lky"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I62-jP-6dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782" y="172"/>
+        </scene>
+    </scenes>
+</document>

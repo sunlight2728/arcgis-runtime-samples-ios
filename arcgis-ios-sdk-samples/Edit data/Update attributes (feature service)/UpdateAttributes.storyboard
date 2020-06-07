@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4jB-Wx-0bj">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Update Attributes View Controller-->
+        <scene sceneID="BpV-oW-UQx">
+            <objects>
+                <viewController id="4jB-Wx-0bj" customClass="UpdateAttributesViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kFf-uD-lO1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzg-2n-LkU" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uzg-2n-LkU" secondAttribute="bottom" id="0kk-Ww-qgs"/>
+                            <constraint firstItem="uzg-2n-LkU" firstAttribute="leading" secondItem="kFf-uD-lO1" secondAttribute="leading" id="2qK-XM-D9p"/>
+                            <constraint firstItem="uzg-2n-LkU" firstAttribute="top" secondItem="kFf-uD-lO1" secondAttribute="top" id="7s2-PY-go3"/>
+                            <constraint firstAttribute="trailing" secondItem="uzg-2n-LkU" secondAttribute="trailing" id="X3B-Gu-IVb"/>
+                            <constraint firstItem="uzg-2n-LkU" firstAttribute="top" secondItem="tkd-21-F1k" secondAttribute="top" id="uxc-LX-2n9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tkd-21-F1k"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7s2-PY-go3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="uzg-2n-LkU" id="ZdN-x1-Y7b"/>
+                        <segue destination="ToQ-Hi-TUD" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="formSheet" id="tkq-Ol-UyJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDI-lR-qwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="434"/>
+        </scene>
+        <!--Select new damage type-->
+        <scene sceneID="o3a-Be-bgo">
+            <objects>
+                <tableViewController id="l9u-LK-22c" customClass="UpdateAttributesOptionsViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCu-X4-8KY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EAOptionsCell" textLabel="3bS-Ni-6hQ" style="IBUITableViewCellStyleDefault" id="ltd-qf-aNW">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltd-qf-aNW" id="v6w-Eh-0aC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3bS-Ni-6hQ">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="l9u-LK-22c" id="ah0-if-koL"/>
+                            <outlet property="delegate" destination="l9u-LK-22c" id="58W-Zf-OAD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select new damage type" id="ST8-os-WVQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wkb-gu-hjX">
+                            <connections>
+                                <action selector="cancel" destination="l9u-LK-22c" id="mPW-mT-zTx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMc-yO-TKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="433"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q25-EH-fSu">
+            <objects>
+                <navigationController id="ToQ-Hi-TUD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BKW-Ca-dPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l9u-LK-22c" kind="relationship" relationship="rootViewController" id="f0I-g1-hlN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LjN-TO-Cq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="433"/>
+        </scene>
+    </scenes>
+</document>

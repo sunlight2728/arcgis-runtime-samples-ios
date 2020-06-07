@@ -1,43 +1,81 @@
-arcgis-runtime-samples-ios
+ArcGIS Runtime SDK for iOS Samples [![](https://user-images.githubusercontent.com/2257493/54144188-6fe0fc00-43e8-11e9-8cf5-229af80f604a.png)](https://itunes.apple.com/us/app/arcgis-runtime-sdk-for-ios/id1180714771)
 ==========================
-This repository contains sample code demonstrating the capabilities of [ArcGIS Runtime SDK for iOS](http://developers.arcgis.com/en/ios/). Each sample is an entire project that can be opened in XCode and instantly run on a simulator or a device.
 
-The ```master``` branch of this repository contains samples configured for the latest available version of [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/en/ios/). For samples configured for older versions of the SDK,  look under the ```Releases``` tab for a specific version.
+This repository contains Swift sample code demonstrating the capabilities of [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/latest/) and how to use them in your own app. The project that can be opened in Xcode and run on a simulator or a device. Or you can [download the app from the App Store](https://itunes.apple.com/us/app/arcgis-runtime-sdk-for-ios/id1180714771) on your iOS device.
+
+![](SampleApp.png)
+
+The ```master``` branch of this repository contains samples configured for the latest available version of ArcGIS Runtime SDK for iOS. For samples configured for older versions of the SDK, look under the ```Releases``` tab for a specific version.
+
+## Features
+
+* Maps - Open, create, interact with and save maps
+* Layers - Display vector and raster data in maps and scenes
+* Features - Work with feature layers and geodatabases
+* Display Information - Show graphics, popups, callouts, and sketches
+* Search - Find addresses, places, and points of interest
+* Edit Data - Add, delete, and edit features and attachments
+* Geometry - Create geometries and perform geometric operations
+* Route & Directions - Calculate routes between locations and around barriers
+* Analysis - Perform spatial analysis via geoprocessing tasks and services
+* Cloud & Portal - Search for webmaps and list portal group users
+* Scenes - Visualize 3D environments and symbols
+* Utility Network - Work with utility networks, performing traces and exploring network elements
+* Augmented Reality - View data overlaid on the real world through your device's camera
 
 ## Requirements
-[ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/en/ios/) (Requires ArcGIS for Developers account; free to sign up)
 
-For Objective-C :
-* XCode 5 (or higher)
-* iOS 7 SDK (or higher)
+* [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/latest/) 100.8.0 (or newer)
+* [ArcGIS Runtime Toolkit for iOS](https://github.com/Esri/arcgis-runtime-toolkit-ios) 100.8.0 (or newer)
+* Xcode 11.0 (or newer)
 
-For Swift : 
-* XCode 6.3 (or higher)
-* iOS 8 SDK (or higher)
+The *ArcGIS Runtime SDK Samples app* has a *Target SDK* version of *12.0*, meaning that it can run on devices with *iOS 12.0* or newer.
 
-## Instructions
+## Building samples using installed SDK
 
-1. Get the code in this repository. Don't know how? [Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
-1. Double-click the ```AllSamples.xcworkspace``` file to open all projects together in a single XCode window, or alternatively, double-click an individual project's ```.xcodeproj``` file to open it separately.
-1. Choose a Target and Device/Simulator combination from the Scheme menu and hit Run to run the sample application. 
+1. **Fork** and then **clone** the repository
+    > Make sure to use the "recursive" option to ensure you get the **ArcGIS Runtime Toolkit** submodule
+    >
+    >`git clone --recursive [URL to Git repo]`
+    >
+    > If you've already cloned the repo without the submodule, you can load the submodule using 
+    >
+    >`git submodule update --init`
+1. **Install** the ArcGIS Runtime SDK for iOS to a central location on your Mac as described [here](https://developers.arcgis.com/ios/latest/swift/guide/install.htm#ESRI_SECTION1_D57435A2BEBC4D29AFA3A4CAA722506A)
+1. **Open** the `arcgis-ios-sdk-samples.xcodeproj` **project** file
+1. **Run** the `arcgis-ios-sdk-samples` app target
+    > If you get the error message saying _"This Copy Files build phase contains a reference to a missing file 'ArcGISToolkit.framework'"_, you probably didn't clone the repo to include it's submodule. See Step 1 above.
 
+## Building samples with CocoaPods
 
-##Additional Resources
+1. **Fork** and then **clone** the repository
+1. **Install** the ArcGIS Runtime SDK for iOS by running the `pod install` command in the folder where you cloned this repository
+1. **Open** the `arcgis-ios-sdk-samples.xcworkspace` **workspace** file
+1. **Select** the `arcgis-ios-sdk-samples` project node, go to the `Build Phases` tab, and **delete** the phases for `Embed Frameworks` and `Strip Frameworks` (these phases conflict with CocoaPods and are only required when using the installed SDK as described in the previous section)
+1. **Select** the `ArcGISToolkit.xcodeproj` project node and **delete** it. (this project dependency conflicts with CocoaPods and is only required when using the installed SDK as described in the previous section)
+1. **Run** the `arcgis-ios-sdk-samples` app target
 
-* Want to start a new project? [Setup](https://developers.arcgis.com/en/ios/info/install.htm) your dev environment
-* New to the API? Explore the documentation : [Guide](http://developers.arcgis.com/en/ios/guide/introduction.htm) | [API Reference](http://developers.arcgis.com/en/ios/api-reference/index.htm)
-* Got a question? Ask the community on our [forum](http://forums.arcgis.com/forums/78-ArcGIS-for-iOS-SDK)
+## Sample Data
+
+Some sample data is too large to store in the repository, so it is automatically downloaded at build time. The first time the app is built, a build script downloads the necessary data to `Portal Data`. The script only downloads data files that do not already exist, so subsequent builds will take significantly less time.
+
+## Additional Resources
+
+* Want to start a new project? [Setup](https://developers.arcgis.com/ios/latest/swift/guide/install.htm) your dev environment
+* New to the API? Explore the documentation : [Guide](https://developers.arcgis.com/ios/latest/swift/guide/introduction.htm) | [API Reference](https://developers.arcgis.com/ios/latest/api-reference/)
+* Got a question? Ask the community on our [forum](https://community.esri.com/community/developers/native-app-developers/arcgis-runtime-sdk-for-ios/)
 
 ## Issues
 
-Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+Find a bug or want to request a new feature? Please let us know by submitting an issue.
 
 ## Contributing
 
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
-Copyright 2013 Esri
+
+Copyright 2020 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -51,7 +89,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/arcgis-runtime-samples-ios/master/license.txt) file.
-
-[](Esri Tags: ArcGIS Runtime iOS SDK Samples)
-[](Esri Language: Objective-C, Swift)
+A copy of the license is available in the repository's [LICENSE](https://github.com/Esri/arcgis-runtime-samples-ios/blob/master/LICENSE) file.
